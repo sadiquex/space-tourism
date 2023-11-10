@@ -1,6 +1,7 @@
 import { Bellefair, Barlow_Condensed } from "next/font/google";
 import StyledComponentsRegistry from "./_lib/registry";
-import GlobalStyles from "./globals";
+import GlobalStyles from "./_ui/styles/globals";
+import Navbar from "./components/Navbar";
 
 // fonts should be in the head
 
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
       <body>
         <StyledComponentsRegistry>
           <GlobalStyles />
+          {/* <Navbar /> */}
           {children}
         </StyledComponentsRegistry>
       </body>

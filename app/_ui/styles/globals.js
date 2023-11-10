@@ -36,6 +36,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	/* background: #141415; */
+	font-family: var(--font-barlow-condensed), sans-serif;
 }
 ol, ul {
 	list-style: none;

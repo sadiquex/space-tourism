@@ -8,21 +8,25 @@ This file defines all the text styles
 export const H1 = styled.h1`
   font-family: var(--font-bellefair), sans-serif;
   font-size: 150px;
+  color: #fff;
 `;
 
 export const H2 = styled.h2`
   font-family: var(--font-bellefair), sans-serif;
   font-size: 100px;
+  color: #fff;
 `;
 
 export const H3 = styled.h3`
   font-family: var(--font-bellefair), sans-serif;
   font-size: 56px;
+  color: #fff;
 `;
 
 export const H4 = styled.h4`
   font-family: var(--font-bellefair), sans-serif;
   font-size: 32px;
+  color: #fff;
 `;
 
 export const H5 = styled.h5`
