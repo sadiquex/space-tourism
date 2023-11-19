@@ -1,4 +1,4 @@
-import { Bellefair, Barlow_Condensed } from "next/font/google";
+import { Bellefair, Barlow_Condensed, Barlow } from "next/font/google";
 import StyledComponentsRegistry from "./_lib/registry";
 import GlobalStyles from "./_ui/styles/globals";
 import Navbar from "./components/Navbar";
@@ -6,32 +6,38 @@ import Navbar from "./components/Navbar";
 // fonts should be in the head
 
 export const metadata = {
-  title: "Space Tourism",
+  title: "Space Tourism | Sadique",
   description: "Created by Ibrahim Saddik",
 };
 
-export const bellefair = Bellefair({
-  weight: ["400"],
+const bellefair = Bellefair({
   subsets: ["latin"],
+  weight: "400",
   variable: "--font-bellefair",
-  display: "swap",
 });
 
-export const barlow = Barlow_Condensed({
-  weight: ["400", "700"],
-  style: ["italic"],
+const barlow_condensed = Barlow_Condensed({
   subsets: ["latin"],
+  weight: ["400", "700"],
   variable: "--font-barlow-condensed",
-  display: "swap",
+});
+
+const barlow_regular = Barlow({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-barlow",
 });
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${bellefair.variable} ${barlow.variable}`}>
+    <html
+      lang="en"
+      className={`${bellefair.variable} ${barlow_condensed.variable} ${barlow_regular.variable}`}
+    >
       <body>
         <StyledComponentsRegistry>
           <GlobalStyles />
-          {/* <Navbar /> */}
+          <Navbar />
           {children}
         </StyledComponentsRegistry>
       </body>

@@ -4,10 +4,12 @@ import { createGlobalStyle } from "styled-components";
 import { Bellefair } from "next/font/google";
 
 const GlobalStyles = createGlobalStyle`
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+
+/* global variables */
+:root {
+	--tablet-screen: 768px;
+}
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -36,9 +38,15 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	/* background: #141415; */
-	font-family: var(--font-barlow-condensed), sans-serif;
+	background: #141415;
+
 }
+
+a {
+	text-decoration: none;
+	font-family: inherit;
+}
+
 ol, ul {
 	list-style: none;
 }
