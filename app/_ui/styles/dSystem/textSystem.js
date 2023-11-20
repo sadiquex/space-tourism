@@ -29,21 +29,38 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-family: var(--font-bellefair), sans-serif;
   font-size: 56px;
+  text-transform: uppercase;
   color: #fff;
+  white-space: nowrap;
+
+  @media (max-width: 480px) {
+    font-size: 32px;
+  }
 `;
 
 export const H4 = styled.h4`
   font-family: var(--font-bellefair), sans-serif;
   font-size: 32px;
-  color: #fff;
+  color: #4f525a;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
 `;
 
 export const H5 = styled.h5`
   font-family: var(--font-barlow-condensed), sans-serif;
   font-size: 28px;
   letter-spacing: 4.75;
-  color: #d0d6f9;
   white-space: nowrap;
+  color: #fff;
+
+  span {
+    color: #4f525a;
+    font-weight: bolder;
+  }
 `;
 
 export const SubHeading_1 = styled.p`
@@ -62,7 +79,7 @@ export const SubHeading_2 = styled.p`
 
 export const Nav_Text = styled.p`
   font-family: var(--font-barlow-condensed), sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   letter-spacing: 2.7;
   white-space: nowrap;
   color: #fff;

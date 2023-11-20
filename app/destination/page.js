@@ -28,12 +28,6 @@ export default function Destination() {
   // use the current index to determine the data for the destination
   const { name, images, description, distance, travel } = places[value];
 
-  // function to change tab
-  function tabHandler(clickedIndex) {
-    // the index of places is responsible for changing the state
-    setValue(clickedIndex);
-  }
-
   return (
     <MainContainer
       // trascient props - notice the $
@@ -44,7 +38,9 @@ export default function Destination() {
       <GridContainer>
         <GridItem>
           <Image_Content>
-            <H5>01 CHOOSE YOUR DESTINATION</H5>
+            <H5>
+              <span>01</span> CHOOSE YOUR DESTINATION
+            </H5>
             <PlanetImage
               src={`/${images.webp}`}
               alt={name}
@@ -59,7 +55,8 @@ export default function Destination() {
             <Tabs_UL>
               {data.destinations.map((destination, i) => (
                 <TabTitle_LI
-                  onClick={() => tabHandler(i)}
+                  // the index of places is responsible for changing the state
+                  onClick={() => setValue(i)}
                   key={i}
                   className={destination.name === name ? "active" : ""}
                 >
@@ -71,14 +68,14 @@ export default function Destination() {
             <Body_Text>{description}</Body_Text>
             <Line />
             <Distance_Time>
-              <div>
+              <Distance>
                 <SubHeading_2>AVG. DISTANCE</SubHeading_2>
                 <SubHeading_1>{distance}</SubHeading_1>
-              </div>
-              <div>
+              </Distance>
+              <Distance>
                 <SubHeading_2>EST. TRAVEL TIME</SubHeading_2>
                 <SubHeading_1>{travel}</SubHeading_1>
-              </div>
+              </Distance>
             </Distance_Time>
           </Text_Content>
         </GridItem>
@@ -104,7 +101,7 @@ const PlanetImage = styled(Image)`
 const Tabs_UL = styled.ul`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 80%;
 
   .active {
     border-bottom: 4px solid #fff;
@@ -114,11 +111,11 @@ const Tabs_UL = styled.ul`
     width: 60%;
   }
   @media (max-width: 480px) {
-    /* width: 100%; */
+    width: 100%;
   }
 `;
 
-const TabTitle_LI = styled.li`
+export const TabTitle_LI = styled.li`
   padding-bottom: 10px;
   cursor: pointer;
 
@@ -153,4 +150,10 @@ const Distance_Time = styled.div`
       gap: 10px;
     }
   }
+`;
+
+const Distance = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;

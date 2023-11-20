@@ -5,40 +5,32 @@ import { navLinks } from "./navbarData";
 import { NavContextProvider, NavContext } from "../context/Context";
 import { useContext } from "react";
 
-import {
-  H1,
-  Nav_Text,
-  SubHeading_1,
-  SubHeading_2,
-} from "../_ui/styles/dSystem/textSystem";
+import { Nav_Text } from "../_ui/styles/dSystem/textSystem";
 import Link from "next/link";
 import MobileNav from "./MobileNav";
+import HamburgerIcon from "./HamburgerIcon";
 export default function Navbar() {
   const pathname = usePathname();
 
   return (
     <Wrapper>
       <LineXLogo>
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" href="/">
-          <g fill="none" fillRule="evenodd">
-            <circle cx="24" cy="24" r="24" fill="#FFF" />
-            <path
-              fill="#0B0D17"
-              d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z"
-            />
-          </g>
-        </svg>
+        <Link href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <g fill="none" fillRule="evenodd">
+              <circle cx="24" cy="24" r="24" fill="#FFF" />
+              <path
+                fill="#0B0D17"
+                d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z"
+              />
+            </g>
+          </svg>
+        </Link>
         {/* the line in between */}
         <Line />
       </LineXLogo>
       <NavContextProvider>
-        <Hamburger>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21">
-            <g fill="#D0D6F9" fillRule="evenodd">
-              <path d="M0 0h24v3H0zM0 9h24v3H0zM0 18h24v3H0z" />
-            </g>
-          </svg>
-        </Hamburger>
+        <HamburgerIcon />
         {/* mobile nav */}
         <MobileNav />
       </NavContextProvider>
@@ -152,14 +144,5 @@ const Nav_LI = styled.li`
 const Number_Li = styled.span`
   @media (max-width: 768px) {
     display: none;
-  }
-`;
-
-const Hamburger = styled.div`
-  display: none;
-  padding-right: 30px;
-
-  @media (max-width: 480px) {
-    display: block;
   }
 `;

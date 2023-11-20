@@ -23,6 +23,18 @@ export const MainContainer = styled.main`
     }
   }
 
+  .crew {
+    /* background: pink; */
+    align-items: center;
+  }
+
+  .technology {
+    /* background: pink; */
+    @media (max-width: 768px) {
+      /* flex-direction: column; */
+    }
+  }
+
   @media (max-width: 768px) {
     background-image: url(${(props) => props.$tabletImage});
   }
@@ -32,10 +44,7 @@ export const MainContainer = styled.main`
 `;
 
 export const GridContainer = styled.div`
-  width: 100%;
   display: flex;
-  gap: 20px;
-
   padding-top: 300px;
 
   @media (max-width: 768px) {
@@ -45,6 +54,13 @@ export const GridContainer = styled.div`
     gap: 40px;
     padding-bottom: 30px;
     padding-top: 200px;
+
+    .technology-column-layout {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   @media (max-width: 480px) {
@@ -56,11 +72,30 @@ export const GridItem = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  gap: 20px;
   border: 2px solid blue;
 
   @media (max-width: 480px) {
     /* align-items: flex-start; */
+  }
+
+  .technology-image {
+    width: 100%;
+    align-items: flex-end;
+  }
+
+  .technology-text {
+    justify-content: center;
+  }
+
+  .crew-text {
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 60%;
+    }
   }
 `;
 
@@ -80,7 +115,9 @@ export const Image_Content = styled.div`
 export const Text_Content = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  justify-content: space-between;
+  height: 100%;
+  gap: 60px;
   width: 60%;
   border: 1px solid red;
   color: #fff;
