@@ -1,5 +1,6 @@
 "use client";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { H2 } from "./styles/dSystem/textSystem";
 
 export const MainContainer = styled.main`
@@ -68,13 +69,13 @@ export const GridContainer = styled.div`
   }
 `;
 
-export const GridItem = styled.div`
+export const GridItem = styled(motion.div)`
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 
   @media (max-width: 480px) {
     /* align-items: flex-start; */
@@ -112,14 +113,14 @@ export const Image_Content = styled.div`
   }
 `;
 
-export const Text_Content = styled.div`
+export const Text_Content = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
   gap: 60px;
   width: 60%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   color: #fff;
 
   @media (max-width: 768px) {

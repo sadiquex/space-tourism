@@ -8,7 +8,7 @@ import {
   Text_Content,
   Image_Content,
 } from "../_ui/uiContainers";
-import { BackgroundImg } from "../_ui/BackgroundImg";
+import { AnimatePresence } from "framer-motion";
 import {
   Body_Text,
   H1,
@@ -28,59 +28,97 @@ export default function Destination() {
   // use the current index to determine the data for the destination
   const { name, images, description, distance, travel } = places[value];
 
+  const gridItemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 100,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
   return (
-    <MainContainer
-      // trascient props - notice the $
-      $desktopImage="/assets/destination/background-destination-desktop.jpg"
-      $mobileImage="/assets/destination/background-destination-mobile.jpg"
-      $tabletImage="/assets/destination/background-destination-tablet.jpg"
-    >
-      <GridContainer>
-        <GridItem>
-          <Image_Content>
-            <H5>
-              <span>01</span> CHOOSE YOUR DESTINATION
-            </H5>
-            <PlanetImage
-              src={`/${images.webp}`}
-              alt={name}
-              width={445}
-              height={445}
-              priority
-            />
-          </Image_Content>
-        </GridItem>
-        <GridItem>
-          <Text_Content>
-            <Tabs_UL>
-              {data.destinations.map((destination, i) => (
-                <TabTitle_LI
-                  // the index of places is responsible for changing the state
-                  onClick={() => setValue(i)}
-                  key={i}
-                  className={destination.name === name ? "active" : ""}
-                >
-                  <Nav_Text>{destination.name}</Nav_Text>
-                </TabTitle_LI>
-              ))}
-            </Tabs_UL>
-            <H2>{name}</H2>
-            <Body_Text>{description}</Body_Text>
-            <Line />
-            <Distance_Time>
-              <Distance>
-                <SubHeading_2>AVG. DISTANCE</SubHeading_2>
-                <SubHeading_1>{distance}</SubHeading_1>
-              </Distance>
-              <Distance>
-                <SubHeading_2>EST. TRAVEL TIME</SubHeading_2>
-                <SubHeading_1>{travel}</SubHeading_1>
-              </Distance>
-            </Distance_Time>
-          </Text_Content>
-        </GridItem>
-      </GridContainer>
-    </MainContainer>
+    <AnimatePresence>
+      <MainContainer
+        // trascient props - notice the $
+        $desktopImage="/assets/destination/background-destination-desktop.jpg"
+        $mobileImage="/assets/destination/background-destination-mobile.jpg"
+        $tabletImage="/assets/destination/background-destination-tablet.jpg"
+      >
+        <GridContainer>
+          <GridItem
+          // variants={gridItemVariants}
+          // initial="hidden"
+          // animate="visible"
+          // exit="hidden"
+          >
+            <Image_Content>
+              <H5>
+                <span>01</span> CHOOSE YOUR DESTINATION
+              </H5>
+              <PlanetImage
+                src={`/${images.webp}`}
+                alt={name}
+                width={445}
+                height={445}
+                priority
+              />
+            </Image_Content>
+          </GridItem>
+          <GridItem
+          // variants={gridItemVariants}
+          // initial="hidden"
+          // animate="visible"
+          // exit="hidden"
+          >
+            <Text_Content>
+              <Tabs_UL>
+                {data.destinations.map((destination, i) => (
+                  <TabTitle_LI
+                    // the index of places is responsible for changing the state
+                    onClick={() => setValue(i)}
+                    key={i}
+                    className={destination.name === name ? "active" : ""}
+                  >
+                    <Nav_Text>{destination.name}</Nav_Text>
+                  </TabTitle_LI>
+                ))}
+              </Tabs_UL>
+              <H2>{name}</H2>
+              <Body_Text
+                initial={{
+                  opacity: 0,
+                  y: 1000,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  type: "spring",
+                  delay: "0.5",
+                }}
+              >
+                {description}
+              </Body_Text>
+              <Line />
+              <Distance_Time>
+                <Distance>
+                  <SubHeading_2>AVG. DISTANCE</SubHeading_2>
+                  <SubHeading_1>{distance}</SubHeading_1>
+                </Distance>
+                <Distance>
+                  <SubHeading_2>EST. TRAVEL TIME</SubHeading_2>
+                  <SubHeading_1>{travel}</SubHeading_1>
+                </Distance>
+              </Distance_Time>
+            </Text_Content>
+          </GridItem>
+        </GridContainer>
+      </MainContainer>
+    </AnimatePresence>
   );
 }
 

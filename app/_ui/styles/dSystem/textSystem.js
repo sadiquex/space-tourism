@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 /* 
@@ -93,7 +94,7 @@ export const Heading_Text = styled.p`
   color: #fff;
 `;
 
-export const Body_Text = styled.p`
+export const Body_Text = styled(motion.p)`
   font-family: var(--font-barlow), sans-serif;
   font-size: 16px;
   letter-spacing: 2.7;
