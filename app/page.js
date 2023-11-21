@@ -44,8 +44,8 @@ export default function Home() {
 }
 
 const ExploreCircle = styled.p`
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background: #fff;
   color: #000;

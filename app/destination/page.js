@@ -59,7 +59,7 @@ export default function Destination() {
                 <span>01</span> CHOOSE YOUR DESTINATION
               </H5>
               <PlanetImage
-                src={`/${images.webp}`}
+                src={`${images.webp}`}
                 alt={name}
                 width={445}
                 height={445}

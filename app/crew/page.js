@@ -52,7 +52,7 @@ export default function Crew() {
         <GridItem>
           <Image_Content>
             <CrewImage
-              src={`/${images.webp}`}
+              src={`${images.webp}`}
               alt=""
               width={568}
               height={712}

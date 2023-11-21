@@ -50,7 +50,7 @@ export default function Technology() {
         <GridItem>
           <Image_Content className="technology-image">
             <DesktopTechnologyImage
-              src={`/${images.portrait}`}
+              src={`${images.portrait}`}
               alt={name}
               width={515}
               height={527}

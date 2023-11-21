@@ -10,7 +10,7 @@ import { NavContext } from "../context/Context";
 export default function MobileNav() {
   const pathname = usePathname();
 
-  // destructure context we're using
+  // destructure context values we're using
   const { toggleMenu, handleToggle } = useContext(NavContext);
 
   return (
@@ -62,16 +62,9 @@ const Nav_UL = styled.ul`
   padding-left: 20px;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   flex-direction: column;
-  background: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ); // Make sure this color has an opacity of less than 1
-  backdrop-filter: blur(8px); // This be the blur
-  /* background: pink; */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px);
   gap: 30px;
 
   position: absolute;
@@ -83,7 +76,6 @@ const Nav_UL = styled.ul`
 const Nav_LI = styled.li`
   display: flex;
   align-items: center;
-  border: 1px solid green;
   width: 100%;
 
   .active {
@@ -101,9 +93,6 @@ const Nav_LI = styled.li`
 
 const Number_Li = styled.span`
   font-weight: bolder;
-  @media (max-width: 768px) {
-    /* display: none; */
-  }
 `;
 
 const Close = styled.span`
