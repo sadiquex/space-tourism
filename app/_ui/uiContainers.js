@@ -1,7 +1,6 @@
 "use client";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { H2 } from "./styles/dSystem/textSystem";
 
 export const MainContainer = styled.main`
   // trascient props - notice the $
@@ -84,6 +83,16 @@ export const GridItem = styled(motion.div)`
   .technology-image {
     width: 100%;
     align-items: flex-end;
+
+    @media (max-width: 768px) {
+      align-items: center;
+      border: 2px solid red;
+    }
+
+    @media (max-width: 480px) {
+      align-items: flex-end;
+      /* width: 98%; */
+    }
   }
 
   .technology-text {
