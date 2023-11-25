@@ -6,7 +6,7 @@
 
 ### Links
 
-- [Live URL](https://space-tourism-fkzpgxiu9-sadiquex.vercel.app/)
+- [Live URL](https://space-tourism-eight-omega.vercel.app/technology)
 
 ### Built with
 
